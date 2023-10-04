@@ -14,13 +14,17 @@ import java.util.Objects;
 public class Libro {
      private int Isbn;
     private String titulo;
-    private Autor autor;
+    private String autor;
     private int anio;
     private String tipo;
     private String editorial;
     private boolean estado;
+    
+     public Libro() {
+        
+    }
 
-    public Libro(int Isbn, String titulo, Autor autor, int anio, String tipo, String editorial, boolean estado) {
+    public Libro(int Isbn, String titulo, String autor, int anio, String tipo, String editorial, boolean estado) {
         this.Isbn = Isbn;
         this.titulo = titulo;
         this.autor = autor;
@@ -30,7 +34,7 @@ public class Libro {
         this.estado = estado;
     }
 
-    public Libro(String titulo, Autor autor, int anio, String tipo, String editorial, boolean estado) {
+    public Libro(String titulo, String autor, int anio, String tipo, String editorial, boolean estado) {
         this.titulo = titulo;
         this.autor = autor;
         this.anio = anio;
@@ -38,6 +42,8 @@ public class Libro {
         this.editorial = editorial;
         this.estado = estado;
     }
+
+   
 
     public int getIsbn() {
         return Isbn;
@@ -55,11 +61,11 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public Autor getAutor() {
+    public String getAutor() {
         return autor;
     }
 
-    public void setAutor(Autor autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 
