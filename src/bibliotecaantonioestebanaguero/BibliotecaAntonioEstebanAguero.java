@@ -22,17 +22,16 @@ public class BibliotecaAntonioEstebanAguero {
         // TODO code application logic here
         
         //   Connection con = Conexion.getConexion();
-
 //METODO GUARDAR LIBRO 
-       /*  Libro orgullo = new Libro("Orgullo y Prejuicio Zombie", "Jane Austen" , 1813 , "Novela Romantica" , "T. Egerton, Whitehall", true);
+       /* Libro orgullo = new Libro("Orgullo y Prejuicio Zombie", "Jane Austen" , "Novela Romantica" , "T. Egerton, Whitehall", true);
         LibroData lib = new LibroData();
         lib.guardarLibro(orgullo);*/
 
-// EL METODO FUNCIONA GUARDA EL LIBRO ORGULLO Y PREJUICIO idISBN 13
+// EL METODO FUNCIONA GUARDA EL LIBRO ORGULLO Y PREJUICIO idLibro  22
         //***********************************************************************************************************************************
 //METODO BUSCAR LIBRO POR idISBN 
 
-        /*LibroData lib=new LibroData();
+       /* LibroData lib=new LibroData();
        Libro libroEncontrado=lib.buscarLibro(2);
       if(libroEncontrado!=null){//para que no muestre el nullpointerexception
         System.out.println("Titulo: "+libroEncontrado.getTitulo());
@@ -53,7 +52,7 @@ public class BibliotecaAntonioEstebanAguero {
 //************************************************************************************************************       
 //METODO MODIFICAR LIBRO
 
-        /*Libro orgullo = new Libro(14, "Orgullo y Prejuicio", "Jane JANE Austen" , 1813 , "Novela Romantica Britanica" , "T. Egerton, Whitehall", true);
+        /*Libro orgullo = new Libro(10, "Orgullo y Prejuicio", "Jane JANE Austen" , "Novela Romantica Britanica" , "T. Egerton, Whitehall", true);
         LibroData lib = new LibroData();
         lib.modificarLibro(orgullo);*/
         //ALUMNO MODIFICADO EXITOSAMENTE SE LE ADICIONO "Jane JANE Austen" EN EL idISBN 14      
@@ -64,8 +63,7 @@ public class BibliotecaAntonioEstebanAguero {
             System.out.println(libro.getIsbn());
             System.out.println(libro.getTitulo());
             System.out.println(libro.getAutor());
-            System.out.println(libro.getAnio());
-            System.out.println(libro.getTipo());
+            System.out.println(libro.getGenero());
             System.out.println(libro.getEditorial());
             System.out.println("--------------------");
         }*/
@@ -82,14 +80,54 @@ public class BibliotecaAntonioEstebanAguero {
   
  //METODO ELIMINAR LIBRO
          
-       /* Libro orgullo = new Libro("Orgullo y Prejuicio Zombie", "Jane Austen" , 1813 , "Novela Romantica" , "T. Egerton, Whitehall", true);
+        /*Libro orgullo = new Libro("Orgullo y Prejuicio Zombie", "Jane Austen" , "Novela Romantica" , "T. Egerton, Whitehall", true);
         LibroData lib = new LibroData();
-        lib.eliminarLibro(15);*/
+        lib.eliminarLibro(22);*/
      
- //ELIMINA EXITOSAMENTE LIBRO idISBN (15) 
+ //ELIMINA EXITOSAMENTE LIBRO idLibro (22) 
  //***********************************************************************************************************************************
-    }
+   //*************************************************************************************************************************************************
+
+//PROCEDIMIENTO PARA GUARDAR EJEMPLAR 
+
+      /* Ejemplar ejemplar = new Ejemplar();
+    ejemplar.setCantidadEjemplares(5); // Establecer la cantidad de ejemplares
+    ejemplar.setEstado(true); // Establecer el estado del ejemplar
+    // Establecer el idIsbn del libro al que deseas asociar este ejemplar
+    int idIsbn = 21; 
+    EjemplarData ejeData = new EjemplarData();
+    ejeData.guardarEjemplar(ejemplar, idIsbn);*/
+    
+//RESULTADO METODO FUNCIONA GUARDAR Ejemplar       
+////******************************************************************************************************* 
+//    Prestamo p=new Prestamo();
+//    PrestamoData pr=new PrestamoData();
+//    pr.registrarPrestamo(LocalDate.of(2023, Month.SEPTEMBER, 23),LocalDate.of( 2023, Month.OCTOBER,05), "orgullo y prejuicio", 13));
+//    
+//    
+//PrestamoData prestamoData = new PrestamoData();
+//
+//    // Supongamos que tienes instancias de Ejemplar y Lector
+//    Ejemplar ejemplar = new Ejemplar(); // Asegúrate de configurar este objeto con los datos necesarios
+//    Lector lector = new Lector(); // Asegúrate de configurar este objeto con los datos necesarios
+//
+//    // Supongamos que tienes las fechas de inicio y fin necesarias
+//    Date fechaInicio = new Date(); // Fecha actual
+//    Date fechaFin = new Date(); // Fecha actual + algún período de tiempo
+//
+//    // Llama al método registrarPrestamo y verifica el resultado
+//    boolean exito = prestamoData.registrarPrestamo(ValueOf(2023-09-16), (2023-10-01),"Orgullo yt prejuicio", 13);
+//
+//    if (exito) {
+//        System.out.println("El préstamo se registró exitosamente.");
+//    } else {
+//        System.out.println("No se pudo registrar el préstamo.");
+//    }
+}
+ }
+
+    
 
     
     
-}
+

@@ -33,17 +33,16 @@ public class LibroData {
     
    public void guardarLibro(Libro libro){
    
-       String sql= "INSERT INTO libro(titulo, autor, anio, tipo, editorial, estado) VALUES (?, ?, ?, ?, ?, ?) ";
+       String sql= "INSERT INTO libro(titulo, autor,  genero, editorial, estado) VALUES (?, ?, ?, ?, ?) ";
        
         try {
             PreparedStatement ps=con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             ps.setString(1, libro.getTitulo());
             ps.setString(2, libro.getAutor());
-            ps.setInt(3, libro.getAnio());
-            ps.setString(4, libro.getTipo());
-            ps.setString(5, libro.getEditorial());
-            ps.setBoolean(6, libro.isEstado());
+            ps.setString(3, libro.getGenero());
+            ps.setString(4, libro.getEditorial());
+            ps.setBoolean(5, libro.isEstado());
             ps.executeUpdate();
             
             ResultSet rs= ps.getGeneratedKeys();
@@ -59,23 +58,22 @@ public class LibroData {
    
    } 
     
-public Libro buscarLibro(int idIsbn){
+public Libro buscarLibro(int idLibro){
 
     Libro libro=null;
     
-    String sql = " SELECT titulo, autor, anio, tipo, editorial, estado FROM libro WHERE idIsbn = ? AND estado = 1 ";
+    String sql = " SELECT titulo, autor, genero, editorial, estado FROM libro WHERE idLibro = ? AND estado = 1 ";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idIsbn);
+            ps.setInt(1, idLibro);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
             libro = new Libro();
-            libro.setIsbn(idIsbn);
+            libro.setIsbn(idLibro);
             libro.setTitulo(rs.getString("titulo"));
             libro.setAutor(rs.getString("Autor"));
-            libro.setAnio(rs.getInt("anio"));
-            libro.setTipo(rs.getString("tipo"));
+            libro.setGenero(rs.getString("genero"));
             libro.setEditorial(rs.getString("editorial"));
             libro.setEstado(true);
   
@@ -92,7 +90,7 @@ public Libro buscarLibroPorTitulo(String titulo){
 
     Libro libro=null;
     
-    String sql = "SELECT idIsbn, autor, anio, tipo, editorial, estado FROM libro WHERE titulo = ? AND estado = 1 ";
+    String sql = "SELECT idLibro, autor, genero, editorial, estado FROM libro WHERE titulo = ? AND estado = 1 ";
 
     try {
         PreparedStatement ps = con.prepareStatement(sql);
@@ -100,11 +98,10 @@ public Libro buscarLibroPorTitulo(String titulo){
         ResultSet rs = ps.executeQuery();
         if(rs.next()){
             libro = new Libro();
-            libro.setIsbn(rs.getInt("idIsbn"));
+            libro.setIsbn(rs.getInt("idLibro"));
             libro.setTitulo(titulo);
             libro.setAutor(rs.getString("autor"));
-            libro.setAnio(rs.getInt("anio"));
-            libro.setTipo(rs.getString("tipo"));
+            libro.setGenero(rs.getString("genero"));
             libro.setEditorial(rs.getString("editorial"));
             libro.setEstado(true);
         } else {
@@ -118,16 +115,15 @@ public Libro buscarLibroPorTitulo(String titulo){
 
 public void modificarLibro(Libro libro){
 
-String sql = "UPDATE libro SET titulo = ? , autor = ? , anio = ? , tipo = ? , editorial = ?  WHERE idIsbn = ? ";
+String sql = "UPDATE libro SET titulo = ? , autor = ? , genero = ? , editorial = ?  WHERE idLibro = ? ";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, libro.getTitulo());
             ps.setString(2, libro.getAutor());
-            ps.setInt(3, libro.getAnio());
-            ps.setString(4, libro.getTipo());
-            ps.setString(5, libro.getEditorial());
-            ps.setInt(6, libro.getIsbn());
+            ps.setString(3, libro.getGenero());
+            ps.setString(4, libro.getEditorial());
+            ps.setInt(5, libro.getIsbn());
             
                      int exito = ps.executeUpdate();
 
@@ -145,21 +141,20 @@ String sql = "UPDATE libro SET titulo = ? , autor = ? , anio = ? , tipo = ? , ed
 
 }
 
-public List<Libro> listarLibros(){
+public List<Libro> listarLibro(){
 ArrayList<Libro> libros = new ArrayList<>();
 
-    String sql = "SELECT idIsbn, titulo, autor, anio, tipo, editorial FROM libro WHERE estado = 1 ";
+    String sql = "SELECT idLibro, titulo, autor, genero, editorial FROM libro WHERE estado = 1 ";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
            Libro libro = new Libro();
-           libro.setIsbn(rs.getInt("idISBN"));
+           libro.setIsbn(rs.getInt("idLibro"));
            libro.setTitulo(rs.getString("Titulo"));
            libro.setAutor(rs.getString("Autor"));
-           libro.setAnio(rs.getInt("anio"));
-           libro.setTipo(rs.getString("tipo"));
+           libro.setGenero(rs.getString("Genero"));
            libro.setEditorial(rs.getString("Editorial"));
            libro.setEstado(true);
            
@@ -174,7 +169,7 @@ ArrayList<Libro> libros = new ArrayList<>();
 
 public void eliminarLibro(int id){
 
- String sql = " UPDATE libro SET estado = 0 WHERE idIsbn = ? ";
+ String sql = " UPDATE libro SET estado = 0 WHERE idLibro = ? ";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

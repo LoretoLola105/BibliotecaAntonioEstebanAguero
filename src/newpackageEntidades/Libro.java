@@ -15,8 +15,7 @@ public class Libro {
      private int Isbn;
     private String titulo;
     private String autor;
-    private int anio;
-    private String tipo;
+    private String genero;
     private String editorial;
     private boolean estado;
     
@@ -24,21 +23,19 @@ public class Libro {
         
     }
 
-    public Libro(int Isbn, String titulo, String autor, int anio, String tipo, String editorial, boolean estado) {
+    public Libro(int Isbn, String titulo, String autor, String genero, String editorial, boolean estado) {
         this.Isbn = Isbn;
         this.titulo = titulo;
         this.autor = autor;
-        this.anio = anio;
-        this.tipo = tipo;
+        this.genero = genero;
         this.editorial = editorial;
         this.estado = estado;
     }
 
-    public Libro(String titulo, String autor, int anio, String tipo, String editorial, boolean estado) {
+    public Libro(String titulo, String autor, String tipo, String editorial, boolean estado) {
         this.titulo = titulo;
         this.autor = autor;
-        this.anio = anio;
-        this.tipo = tipo;
+        this.genero = genero;
         this.editorial = editorial;
         this.estado = estado;
     }
@@ -69,20 +66,13 @@ public class Libro {
         this.autor = autor;
     }
 
-    public int getAnio() {
-        return anio;
+  
+    public String getGenero() {
+        return genero;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setGenero(String tipo) {
+        this.genero = genero;
     }
 
     public String getEditorial() {
@@ -103,7 +93,7 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" + "Isbn=" + Isbn + ", titulo=" + titulo + ", autor=" + autor + ", anio=" + anio + ", tipo=" + tipo + ", editorial=" + editorial + ", estado=" + estado + '}';
+        return "Libro{" + "Isbn=" + Isbn + ", titulo=" + titulo + ", autor=" + autor +" ,genero=" + genero + ", editorial=" + editorial + ", estado=" + estado + '}';
     }
 
     @Override
@@ -112,8 +102,7 @@ public class Libro {
         hash = 53 * hash + this.Isbn;
         hash = 53 * hash + Objects.hashCode(this.titulo);
         hash = 53 * hash + Objects.hashCode(this.autor);
-        hash = 53 * hash + this.anio;
-        hash = 53 * hash + Objects.hashCode(this.tipo);
+        hash = 53 * hash + Objects.hashCode(this.genero);
         hash = 53 * hash + Objects.hashCode(this.editorial);
         hash = 53 * hash + (this.estado ? 1 : 0);
         return hash;
@@ -134,16 +123,13 @@ public class Libro {
         if (this.Isbn != other.Isbn) {
             return false;
         }
-        if (this.anio != other.anio) {
-            return false;
-        }
         if (this.estado != other.estado) {
             return false;
         }
         if (!Objects.equals(this.titulo, other.titulo)) {
             return false;
         }
-        if (!Objects.equals(this.tipo, other.tipo)) {
+        if (!Objects.equals(this.genero, other.genero)) {
             return false;
         }
         if (!Objects.equals(this.editorial, other.editorial)) {
