@@ -50,14 +50,28 @@ public class BibliotecaAntonioEstebanAguero {
 //RESULTADO ENCUENTRA AL LIBRO CON TITULO (orgullo y prejuicio): 
 //run: Titulo: orgullo y prejuicio, Autor: Jane Austen, Editorial: T. Egerton, Whitehall, BUILD SUCCESSFUL (total time: 3 seconds)
 //************************************************************************************************************       
-//METODO MODIFICAR LIBRO
 
-        /*Libro orgullo = new Libro(10, "Orgullo y Prejuicio", "Jane JANE Austen" , "Novela Romantica Britanica" , "T. Egerton, Whitehall", true);
-        LibroData lib = new LibroData();
-        lib.modificarLibro(orgullo);*/
-        //ALUMNO MODIFICADO EXITOSAMENTE SE LE ADICIONO "Jane JANE Austen" EN EL idISBN 14      
+            //METODO BUSCAR LIBRO POR GENERO CIENCIA FICCION
+             
+         /*  LibroData lib = new LibroData();
+        String generoBuscado = "ciencia";
+        Libro libroEncontrado = lib.buscarLibroPorGenero(generoBuscado);
+
+        if (libroEncontrado != null) {
+            System.out.println("Libro encontrado: ");
+            System.out.println("Título: " + libroEncontrado.getTitulo());
+            System.out.println("Autor: " + libroEncontrado.getAutor());
+            System.out.println("Editorial: " + libroEncontrado.getEditorial());  
+            System.out.println("--------------------------------------------------------");
+        }*/
+
+ ////RESULTADO ENCUENTRA AL LIBRO CON CIENCIA FICCION run: Libro encontrado: Título: Los juegos del hambreAutor: Suzanne Collins Editorial: Scholastic BUILD SUCCESSFUL (total time: 3 seconds)
+  
+
         //************************************************************************************************************   
-//MUESTRA LA LISTA DE ALUMNOS ACTIVOS
+
+//METODO LISTAR LIBROS LIBRO
+//MUESTRA LA LISTA DE LIBROS ACTIVOS
        /* LibroData lib = new LibroData();
         for (Libro libro : lib.listarLibro()) {
             System.out.println(libro.getIsbn());
@@ -76,6 +90,76 @@ public class BibliotecaAntonioEstebanAguero {
 //10, Ceremonia Secreta, Marco Denevi, 1977, Novela, Sudamericana;12, El corazon de las tinieblas, Joseph Conrad, 1899, Novela corta, Blackwoods Magazine; 13, Orgullo y Prejuicio, 
 //Jane Austen, 1813, Novela Romantica, T. Egerton, Whitehall; 14, Orgullo y Prejuicio, Jane JANE Austen, 1813, Novela Romantica Britanica, T. Egerton, Whitehall BUILD SUCCESSFUL (total time: 3 seconds)
 
+ //************************************************************************************************************ 
+//METODO LISTAR LIBROS POR GENERO SE BUSCA EL GENERO "NOVELA"
+//MUESTRA LA LISTA DE LIBROS ACTIVOS CON GENERO NOVELA
+        /*LibroData lib = new LibroData();
+        for (Libro libro : lib.listarLibrosPorGenero("novela")) {
+            System.out.println("idLibro:"+libro.getIsbn());
+            System.out.println("Titulo: "+libro.getTitulo());
+            System.out.println("Autor: "+libro.getAutor());
+            System.out.println("Genero: "+libro.getGenero());
+            System.out.println("Editorial: "+libro.getEditorial());
+            System.out.println("--------------------");
+        }*/
+
+//  RESULTADO run: idLibro:3, Titulo: Matar a un ruiseñor, Autor: Harper Lee, Genero: Novela, Editorial: J.B. Lippincott & Co; idLibro:5, Titulo: En busca del tiempo perdido, Autor: Marcel Proust
+//Genero: Novela, Editorial: Varios Editores; idLibro:6, Titulo: Crimen y castigo, Autor: Fyodor Dostoevsky, Genero: Novela Psicologica, Editorial: The Russian Messenger; idLibro:7, Titulo: Ulises
+//Autor: James Joyce, Genero: Novela Modernista, Editorial: Sylvia Beach; idLibro:8, Titulo: Moby-Dick, Autor: Herman Melville, Genero: Novela de Aventuras, Editorial: Harper & Brothers
+//idLibro:9, Titulo: El corazon de las tinieblas, Autor: Joseph Conrad, Genero: Novela Corta, Editorial: Blackwoods Magazine; idLibro:10, Titulo: Orgullo y Prejuicio, Autor: Jane JANE Austen
+//Genero: Novela Romantica Britanica, Editorial: T. Egerton, Whitehall; idLibro:13, Titulo: Crónica de una muerte anunciada, Autor: Gabriel Garcia Marquez, Genero: Novela, Editorial: Editorial La Oveja Negra
+//idLibro:17, Titulo: Don Quijote de la Mancha, Autor: Francisco de Robles, Genero: Novela Clasica, Editorial: Miguel de Cervantes; idLibro:20, Titulo: El extranjero, Autor: Albert Camus, Genero: Novela filosofica
+//Editorial: Gallimard; idLibro:21, Titulo: El amor en los tiempos del colera, Autor: Gabrile Garcia Marquez, Genero: Novela, Editorial: Oveja Negra; idLibro:22, Titulo: Orgullo y Prejuicio Zombie
+//Autor: Jane Austen, Genero: Novela Romantica, Editorial: T. Egerton, Whitehall BUILD SUCCESSFUL (total time: 4 seconds)
+ 
+//*****************************************************************************************************************************************
+
+  //METODO LISTAR LIBROS POR AUTOR
+  
+  //METODO LISTAR LIBROS SE BUSCA EL AUTOR "gabriel garcia marquez"
+//MUESTRA LA LISTA DE LIBROS ACTIVOS CON GENERO NOVELA
+
+           /*LibroData lib = new LibroData();
+        for (Libro libro : lib.listarLibrosPorAutor("gabriel garcia marquez")) {
+            System.out.println("idLibro:"+libro.getIsbn());
+            System.out.println("Titulo: "+libro.getTitulo());
+            System.out.println("Autor: "+libro.getAutor());
+            System.out.println("Genero: "+libro.getGenero());
+            System.out.println("Editorial: "+libro.getEditorial());
+            System.out.println("--------------------");
+        }*/
+
+//RESULTADO EXITOSO run: idLibro:2, Titulo: Cien años de soledad, Autor: Gabriel Garcia Marquez, Genero: Realismo Magico, Editorial: Sudamericana; idLibro:13, Titulo: Crónica de una muerte anunciada
+//Autor: Gabriel Garcia Marquez, Genero: Novela, Editorial: Editorial La Oveja Negra BUILD SUCCESSFUL (total time: 3 seconds)
+
+//*************************************************************************************************************************************************
+  //METODO LISTAR LIBROS POR LA  EDITORIAL
+  
+  //METODO LISTAR LIBROS SE BUSCA LA EDITORIAL "sudamericana"
+//MUESTRA LA LISTA DE LIBROS ACTIVOS CON GENERO NOVELA
+        
+        /*  LibroData lib = new LibroData();
+        for (Libro libro : lib.listarLibrosPorEditorial("sudamericana")) {
+            System.out.println("idLibro:"+libro.getIsbn());
+            System.out.println("Titulo: "+libro.getTitulo());
+            System.out.println("Autor: "+libro.getAutor());
+            System.out.println("Genero: "+libro.getGenero());
+            System.out.println("Editorial: "+libro.getEditorial());
+            System.out.println("--------------------");
+        }*/
+
+        //RESULTADO EXITOSO run: idLibro:2, Titulo: Cien años de soledad, Autor: Gabriel Garcia Marquez, Genero: Realismo Magico, Editorial: Sudamericana; idLibro:18, Titulo: Rayuela
+//Autor: Julio Cortazar, Genero: Ficcion Experimental, Editorial: Sudamericana BUILD SUCCESSFUL (total time: 3 seconds)
+
+//******************************************************************************************************************
+
+//METODO MODIFICAR LIBRO
+
+        /*Libro orgullo = new Libro(10, "Orgullo y Prejuicio", "Jane JANE Austen" , "Novela Romantica Britanica" , "T. Egerton, Whitehall", true);
+        LibroData lib = new LibroData();
+        lib.modificarLibro(orgullo);*/
+        //ALUMNO MODIFICADO EXITOSAMENTE SE LE ADICIONO "Jane JANE Austen" EN EL idISBN 14      
+      
  //************************************************************************************************************       
   
  //METODO ELIMINAR LIBRO

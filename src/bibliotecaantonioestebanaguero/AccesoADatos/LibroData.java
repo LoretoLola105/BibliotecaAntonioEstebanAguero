@@ -113,32 +113,29 @@ public Libro buscarLibroPorTitulo(String titulo){
     return libro;
 }
 
-public void modificarLibro(Libro libro){
+public Libro buscarLibroPorGenero(String genero) {
+    Libro libro = null;
+    String sql = "SELECT * FROM libro WHERE genero LIKE ?";
 
-String sql = "UPDATE libro SET titulo = ? , autor = ? , genero = ? , editorial = ?  WHERE idLibro = ? ";
-
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, libro.getTitulo());
-            ps.setString(2, libro.getAutor());
-            ps.setString(3, libro.getGenero());
-            ps.setString(4, libro.getEditorial());
-            ps.setInt(5, libro.getIsbn());
-            
-                     int exito = ps.executeUpdate();
-
-            if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Libro modificado Exitosamente.");
-            } else {
-                JOptionPane.showMessageDialog(null, "El Libro buscado no existe. ");
-            }
-
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(LibroData.class.getName()).log(Level.SEVERE, null, ex);
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, "%" + genero.toLowerCase() + "%"); // Convertimos el género y el parámetro de búsqueda a minúsculas
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            libro = new Libro();
+            libro.setIsbn(rs.getInt("idLibro"));
+            libro.setTitulo(rs.getString("titulo"));
+            libro.setAutor(rs.getString("autor"));
+            libro.setGenero(rs.getString("genero"));
+            libro.setEditorial(rs.getString("editorial"));
+            libro.setEstado(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No existe ese Género");
         }
-
-
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Libro. " + ex.getMessage());
+    }
+    return libro;
 }
 
 public List<Libro> listarLibro(){
@@ -167,6 +164,121 @@ ArrayList<Libro> libros = new ArrayList<>();
         return libros;
 }
 
+public List<Libro> listarLibrosPorGenero(String genero) {
+    List<Libro> listaLibros = new ArrayList<>();
+    String sql = " SELECT * FROM libro WHERE genero LIKE ? ";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, "%" + genero.toLowerCase() + "%"); // Convertimos el género y el parámetro de búsqueda a minúsculas y agregamos los signos de porcentaje
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            Libro libro = new Libro();
+            libro.setIsbn(rs.getInt("idLibro"));
+            libro.setTitulo(rs.getString("titulo"));
+            libro.setAutor(rs.getString("autor"));
+            libro.setGenero(rs.getString("genero"));
+            libro.setEditorial(rs.getString("editorial"));
+            libro.setEstado(true);
+            listaLibros.add(libro); // Agregamos el libro a la lista
+        }
+
+        if (listaLibros.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existen libros con ese género.");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Libro. " + ex.getMessage());
+    }
+    return listaLibros;
+}
+
+public List<Libro> listarLibrosPorAutor(String autor) {
+    List<Libro> listaLibros = new ArrayList<>();
+    String sql = " SELECT * FROM libro WHERE autor LIKE ? ";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, "%" + autor.toLowerCase() + "%"); // Convertimos el género y el parámetro de búsqueda a minúsculas y agregamos los signos de porcentaje
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            Libro libro = new Libro();
+            libro.setIsbn(rs.getInt("idLibro"));
+            libro.setTitulo(rs.getString("titulo"));
+            libro.setAutor(rs.getString("autor"));
+            libro.setGenero(rs.getString("genero"));
+            libro.setEditorial(rs.getString("editorial"));
+            libro.setEstado(true);
+            listaLibros.add(libro); // Agregamos el libro a la lista
+        }
+
+        if (listaLibros.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existen libros con ese género.");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Libro. " + ex.getMessage());
+    }
+    return listaLibros;
+}
+
+public List<Libro> listarLibrosPorEditorial(String editorial) {
+    List<Libro> listaLibros = new ArrayList<>();
+    String sql = " SELECT * FROM libro WHERE editorial LIKE ? ";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, "%" + editorial.toLowerCase() + "%"); // Convertimos el género y el parámetro de búsqueda a minúsculas y agregamos los signos de porcentaje
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            Libro libro = new Libro();
+            libro.setIsbn(rs.getInt("idLibro"));
+            libro.setTitulo(rs.getString("titulo"));
+            libro.setAutor(rs.getString("autor"));
+            libro.setGenero(rs.getString("genero"));
+            libro.setEditorial(rs.getString("editorial"));
+            libro.setEstado(true);
+            listaLibros.add(libro); // Agregamos el libro a la lista
+        }
+
+        if (listaLibros.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existen libros con esa Editorial.");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Libro. " + ex.getMessage());
+    }
+    return listaLibros;
+}
+
+
+public void modificarLibro(Libro libro){
+
+String sql = "UPDATE libro SET titulo = ? , autor = ? , genero = ? , editorial = ?  WHERE idLibro = ? ";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, libro.getTitulo());
+            ps.setString(2, libro.getAutor());
+            ps.setString(3, libro.getGenero());
+            ps.setString(4, libro.getEditorial());
+            ps.setInt(5, libro.getIsbn());
+            
+                     int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "Libro modificado Exitosamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "El Libro buscado no existe. ");
+            }
+
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LibroData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+
+
 public void eliminarLibro(int id){
 
  String sql = " UPDATE libro SET estado = 0 WHERE idLibro = ? ";
@@ -183,6 +295,5 @@ public void eliminarLibro(int id){
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Libro"+ex.getMessage());
         }
-
 }
 }

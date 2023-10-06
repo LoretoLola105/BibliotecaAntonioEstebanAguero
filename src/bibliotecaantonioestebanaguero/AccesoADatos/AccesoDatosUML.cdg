@@ -17,7 +17,7 @@
         <Method name="getConexion" returnType="Connection" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="LibroData" package="" visibility="public" xPosition="29.0" yPosition="395.0">
+    <Class name="LibroData" package="" visibility="public" xPosition="59.0" yPosition="296.0">
       <Fields>
         <Field name="con" type="Connection" visibility="private"/>
       </Fields>
@@ -51,13 +51,15 @@
         <Method name="buscarLibroPorTitulo" returnType="void" visibility="public">
           <Argument type="String" name="titulo"/>
         </Method>
-        <Method name="modificarLibro" returnType="void" visibility="public">
-          <Argument type="Libro" name="libro"/>
+        <Method name="buscarLibroPorGenero" returnType="void" visibility="public">
+          <Argument type="String" name="genero"/>
         </Method>
         <Method name="listarLibros" returnType="List&lt;Libro&gt;" visibility="public"/>
-        <Method name="eliminarLibro" returnType="void" visibility="public">
-          <Argument type="int" name="id"/>
-        </Method>
+        <Method name="listarLibrosPorGenero" returnType="List&lt;Libro&gt;" visibility="public"/>
+        <Method name="listarLibrosPorAutor" returnType="List&lt;Libro&gt;" visibility="public"/>
+        <Method name="listarLibrosPorEditorial" returnType="List&lt;Libro&gt;" visibility="public"/>
+        <Method name="modificarLibro" returnType="void" visibility="public"/>
+        <Method name="eliminarLibro" returnType="void" visibility="public"/>
       </Methods>
     </Class>
   </ClassDiagramComponents>
