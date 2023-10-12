@@ -10,25 +10,22 @@ package newpackageEntidades;
  * @author Otras
  */
 public class Ejemplar {
-    private int idEjemplar;
-    private Libro libro;
-    private boolean estado;
-    private int cantidadEjemplares;
-
+        private int idEjemplar;
+    private Libro idIsbn;
+    private String estado;
+    
     public Ejemplar() {
     }
-
-    public Ejemplar(int idEjemplar, Libro libro, boolean estado, int cantidadEjemplares) {
+   
+    public Ejemplar(int idEjemplar, Libro idIsbn, String estado) {
         this.idEjemplar = idEjemplar;
-        this.libro = libro;
+        this.idIsbn = idIsbn;
         this.estado = estado;
-        this.cantidadEjemplares = cantidadEjemplares;
     }
 
-    public Ejemplar(Libro libro, boolean estado, int cantidadEjemplares) {
-        this.libro = libro;
+    public Ejemplar(Libro idIsbn, String estado) {
+        this.idIsbn = idIsbn;
         this.estado = estado;
-        this.cantidadEjemplares = cantidadEjemplares;
     }
 
     public int getIdEjemplar() {
@@ -39,30 +36,26 @@ public class Ejemplar {
         this.idEjemplar = idEjemplar;
     }
 
-    public Libro getLibro() {
-        return libro;
+    public Libro getIdIsbn() {
+        return idIsbn;
     }
 
-    public void setLibro(Libro libro) {
-        this.libro = libro;
+    public void setIdIsbn(Libro idIsbn) {
+        this.idIsbn = idIsbn;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public int getCantidadEjemplares() {
-        return cantidadEjemplares;
-    }
-
-    public void setCantidadEjemplares(int cantidadEjemplares) {
-        this.cantidadEjemplares = cantidadEjemplares;
-    }
-    
-    
-
+    @Override
+    public String toString() {
+        //return "Ejemplar{" + "idEjemplar=" + idEjemplar + ", idIsbn=" + idIsbn + ", estado=" + estado + '}';
+        return idEjemplar+", "+idIsbn+", "+estado;
+   
+}
 }

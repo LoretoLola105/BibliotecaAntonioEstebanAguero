@@ -171,6 +171,69 @@ public class BibliotecaAntonioEstebanAguero {
  //ELIMINA EXITOSAMENTE LIBRO idLibro (22) 
  //***********************************************************************************************************************************
    //*************************************************************************************************************************************************
+   //***********************************************************************************************************************************
+        ///METODO GUARDAR LECTOR nombre, dni, domicilio, telefono, estado) 
+        
+      /*  Lector alba = new Lector("Martinez alba", 100, "French 2354", "", 456789, true);
+        LectorData lecData = new LectorData();
+        lecData.guardarLector(alba);*/
+        
+//FUNCIONA GUARDA CORRECTAMENTE AL LECTOR ID (11, "Martinez alba", 100, French 2354, "",  456789, 1);
+
+//************************************************************************************************************************************
+//METODO BUSCAR LECTOR nombre, dni, domicilio, telefono, estado FROM lector "
+        /*LectorData lecData = new LectorData();
+        int id = 4;
+        Lector lectorEncontrado = lecData.buscarLector(4);
+        if (lectorEncontrado != null) {//para que no muestre el nullpointerexception
+            System.out.println("IdLector : " + lectorEncontrado.getIdLector());
+            System.out.println("Nombre : " + lectorEncontrado.getNombre());
+            System.out.println("DNI: " + lectorEncontrado.getDni());
+        }*/
+        //FUNCIONA CORRECTAMENTE BUSCA AL ID 4, run: IdLector : 4, Nombre : Portales Ana, DNI: 44444 BUILD SUCCESSFUL (total time: 3 seconds)
+//**************************************************************************************************************************************
+//METODO BUSCAR LECTOR POR DNI
+
+        /*LectorData lecData = new LectorData();
+        int dni = 111;
+        Lector lectorEncontrado = lecData.buscarLectorPorDni(111);
+        if (lectorEncontrado != null) {//para que no muestre el nullpointerexception
+            System.out.println("IdLector : " + lectorEncontrado.getIdLector());
+            System.out.println("Nombre : " + lectorEncontrado.getNombre());
+            System.out.println("DNI: " + lectorEncontrado.getDni());*/
+        
+//RESULTADO EXITOSO (BUSCA A EL EJEMPLAR CON DNI 111) run: IdLector : 1, Nombre : Peralta Nicolas, DNI: 111 BUILD SUCCESSFUL (total time: 5 seconds)
+//*****************************************************************************************************************************************
+        //METODO LISTAR LECTORES MUESTRA LA LISTA DE LECTORES ACTIVOS 
+
+       /* LectorData lecData = new LectorData();
+        for (Lector lector: lecData.listarLectores()){
+            System.out.println("IdLector : " + lector.getIdLector());
+            System.out.println("Nombre : " + lector.getNombre());
+            System.out.println("DNI: " + lector.getDni());
+            System.out.println("--------------------");
+        }*/
+//EL METODO FUNCIONA CORRECTAMENTE LISTA A LOS LECTORES ACTIVOS run: IdLector : 1, Nombre : Peralta Nicolas, DNI: 111; IdLector : 2, Nombre : Santillan Luciana
+//DNI: 222, IdLector : 3, Nombre : Perez Monica, DNI: 333; IdLector : 4, Nombre : Portales Ana, DNI: 444; IdLector : 5, Nombre : Rodriguez Bianca, DNI: 555; IdLector : 6, Nombre : Gomez Erika
+//DNI: 666, IdLector : 7, Nombre : Blanco Sandra, DNI: 777; IdLector : 8, Nombre : Martinez Carlos, DNI: 888; IdLector : 9, Nombre : Martinez Juan, DNI: 999; 11, Martinez alba, 100, French 2354
+//456789, 1  BUILD SUCCESSFUL (total time: 3 seconds)
+//****************************************************************************************************************************************** 
+//METODO MODIFICAR LECTOR
+       /* Lector alba = new Lector(11, "Martinez alba", 100, "French 2354", "alba@gmail.com", 456789, true);
+        LectorData lecData = new LectorData();
+        lecData.modificarLector(alba); */
+        //FUNCIONA GUARDA CORRECTAMENTE A L LECTOR ID (9 ,"Martinez Juan Pablo", 25689745, French 2354, 456789 1);
+//******************************************************************************************************************************************
+        //METODO ELIMINAR LECTOR
+       /* Lector juan = new Lector(9, "Martinez Juan Pablo", 999, "French 2354","juanPablo@gmail.com",  456789, true);
+        LectorData lecData = new LectorData();
+        lecData.eliminarLector(9);*/
+        
+//ELIMINA EXITOSAMENTE LECTOR CON ID( 9, "Martinez Juan Pablo", 999, "French 2354","juanPablo@gmail.com" 456789, true);
+        
+//******************************************************************************************************************************************
+//***************************************************************************************************************************************+*+
+
 
 //PROCEDIMIENTO PARA GUARDAR EJEMPLAR 
 

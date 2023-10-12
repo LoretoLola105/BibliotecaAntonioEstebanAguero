@@ -10,50 +10,43 @@ package newpackageEntidades;
  * @author Otras
  */
 public class Lector {
-     private int idSocio;
-    private String apellido;
+    private int idLector;
     private String nombre;
     private int dni;
     private String domicilio;
-    private int numeroTel;
     private String email;
+    private int numeroTel;
     private boolean estado;
 
-    public Lector(int idSocio, String apellido, String nombre, int dni, String domicilio, int numeroTel, String email, boolean estado) {
-        this.idSocio = idSocio;
-        this.apellido = apellido;
+    //constructores
+    public Lector() {
+    }
+
+    public Lector(int idLector, String nombre, int dni, String domicilio, String email, int numeroTel, boolean estado) {
+        this.idLector = idLector;
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
-        this.numeroTel = numeroTel;
         this.email = email;
+        this.numeroTel = numeroTel;
         this.estado = estado;
     }
 
-    public Lector(String apellido, String nombre, int dni, String domicilio, int numeroTel, String email, boolean estado) {
-        this.apellido = apellido;
+    public Lector(String nombre, int dni, String domicilio, String email, int numeroTel, boolean estado) {
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
-        this.numeroTel = numeroTel;
         this.email = email;
+        this.numeroTel = numeroTel;
         this.estado = estado;
     }
 
-    public int getIdSocio() {
-        return idSocio;
+    public int getIdLector() {
+        return idLector;
     }
 
-    public void setIdSocio(int idSocio) {
-        this.idSocio = idSocio;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setIdLector(int idLector) {
+        this.idLector = idLector;
     }
 
     public String getNombre() {
@@ -80,14 +73,6 @@ public class Lector {
         this.domicilio = domicilio;
     }
 
-    public int getNumeroTel() {
-        return numeroTel;
-    }
-
-    public void setNumeroTel(int numeroTel) {
-        this.numeroTel = numeroTel;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -96,18 +81,26 @@ public class Lector {
         this.email = email;
     }
 
-    public boolean isEstado() {
+    public int getNumeroTel() {
+        return numeroTel;
+    }
+
+    public void setNumeroTel(int numeroTel) {
+        this.numeroTel = numeroTel;
+    }
+
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Lector{" + "idSocio=" + idSocio + ", apellido=" + apellido + ", nombre=" + nombre + ", dni=" + dni + ", domicilio=" + domicilio + ", numeroTel=" + numeroTel + ", email=" + email + ", estado=" + estado + '}';
+     //   return "Lector{" + "idLector=" + idLector + ", nombre=" + nombre + ", dni=" + dni + ", domicilio=" + domicilio + ", email=" + email + ", numeroTel=" + numeroTel + ", estado=" + estado + '}';
+     return  idLector+", "+nombre+", "+dni;
     }
 
-   
 }
