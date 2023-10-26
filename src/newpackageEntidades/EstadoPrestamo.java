@@ -9,11 +9,7 @@ package newpackageEntidades;
  *
  * @author Otras
  */
-public enum EstadoDelEjemplar {
-  //contiene constantes SE COLOCAN EN MAYUSCULAS
+public enum EstadoPrestamo {
     PRESTADO,
-    RETRASO, 
-    REPARACION,
-    DISPONIBLE
-      
+    DEVUELTO
 }

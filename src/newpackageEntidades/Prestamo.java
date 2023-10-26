@@ -13,24 +13,27 @@ import java.util.Date;
  */
 public class Prestamo {
      private int idPrestamo;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private String fechaPrestamo;
+    private String fechaDevolucion;
     private Ejemplar ejemplar;
     private Lector lector;
-    private boolean estado;
+    private EstadoPrestamo estado;
 
-    public Prestamo(int idPrestamo, Date fechaInicio, Date fechaFin, Ejemplar ejemplar, Lector lector, boolean estado) {
+    public Prestamo() {
+    }
+
+    public Prestamo(int idPrestamo, String fechaPrestamo, String fechaDevolucion, Ejemplar ejemplar, Lector lector, EstadoPrestamo estado) {
         this.idPrestamo = idPrestamo;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+        this.fechaPrestamo = fechaPrestamo;
+        this.fechaDevolucion = fechaDevolucion;
         this.ejemplar = ejemplar;
         this.lector = lector;
         this.estado = estado;
     }
 
-    public Prestamo(Date fechaInicio, Date fechaFin, Ejemplar ejemplar, Lector lector, boolean estado) {
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+    public Prestamo(String fechaPrestamo, String fechaDevolucion, Ejemplar ejemplar, Lector lector, EstadoPrestamo estado) {
+        this.fechaPrestamo = fechaPrestamo;
+        this.fechaDevolucion = fechaDevolucion;
         this.ejemplar = ejemplar;
         this.lector = lector;
         this.estado = estado;
@@ -44,20 +47,20 @@ public class Prestamo {
         this.idPrestamo = idPrestamo;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public String getFechaPrestamo() {
+        return fechaPrestamo;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechaPrestamo(String fechaPrestamo) {
+        this.fechaPrestamo = fechaPrestamo;
     }
 
-    public Date getFechaFin() {
-        return fechaFin;
+    public String getFechaDevolucion() {
+        return fechaDevolucion;
     }
 
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechaDevolucion(String fechaDevolucion) {
+        this.fechaDevolucion = fechaDevolucion;
     }
 
     public Ejemplar getEjemplar() {
@@ -76,18 +79,20 @@ public class Prestamo {
         this.lector = lector;
     }
 
-    public boolean isEstado() {
+    public EstadoPrestamo getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(EstadoPrestamo estado) {
         this.estado = estado;
     }
 
+
+    
+    
     @Override
     public String toString() {
-        return "Prestamo{" + "idPrestamo=" + idPrestamo + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", ejemplar=" + ejemplar + ", lector=" + lector + ", estado=" + estado + '}';
+        return "Prestamo{" + "idPrestamo=" + idPrestamo + ", fechaPrestamo=" + fechaPrestamo + ", fechaDevolucion=" + fechaDevolucion + ", ejemplar=" + ejemplar + ", lector=" + lector + ", estado=" + estado + '}';
     }
-    
-   
+
 }

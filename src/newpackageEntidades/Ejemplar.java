@@ -4,28 +4,34 @@
  * and open the template in the editor.
  */
 package newpackageEntidades;
-
+import  newpackageEntidades.EstadoEjemplar;
 /**
  *
  * @author Otras
  */
 public class Ejemplar {
-        private int idEjemplar;
-    private Libro idIsbn;
-    private String estado;
+       private int idEjemplar;
+    private Libro idIsbn; // Mantener la propiedad idIsbn como objeto Libro
+    private int idIsbnInt; // Agregar una propiedad adicional para el valor int        
+    private EstadoEjemplar estado;
+    private boolean activo;
     
     public Ejemplar() {
     }
-   
-    public Ejemplar(int idEjemplar, Libro idIsbn, String estado) {
+
+    public Ejemplar(int idEjemplar, Libro idIsbn, int idIsbnInt, EstadoEjemplar estado, boolean activo) {
         this.idEjemplar = idEjemplar;
         this.idIsbn = idIsbn;
+        this.idIsbnInt = idIsbnInt;
         this.estado = estado;
+        this.activo = activo;
     }
 
-    public Ejemplar(Libro idIsbn, String estado) {
+    public Ejemplar(Libro idIsbn, int idIsbnInt, EstadoEjemplar estado, boolean activo) {
         this.idIsbn = idIsbn;
+        this.idIsbnInt = idIsbnInt;
         this.estado = estado;
+        this.activo = activo;
     }
 
     public int getIdEjemplar() {
@@ -44,18 +50,45 @@ public class Ejemplar {
         this.idIsbn = idIsbn;
     }
 
-    public String getEstado() {
+    public EstadoEjemplar getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoEjemplar estado) {
         this.estado = estado;
+    }
+    
+    public int getIdIsbnInt() {
+        return idIsbnInt;
+    }
+
+    public void setIdIsbnInt(int idIsbnInt) {
+        this.idIsbnInt = idIsbnInt;
+    }
+    
+    // Método para cambiar el estado a "INACTIVO"
+    public void desactivar() {
+        this.estado = EstadoEjemplar.INACTIVO_PRESTADO;
+    }
+
+    // Método para cambiar el estado a "ACTIVO"
+    public void activar() {
+        this.estado = EstadoEjemplar.DISPONIBLE_BIBLIOTECA;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     @Override
     public String toString() {
-        //return "Ejemplar{" + "idEjemplar=" + idEjemplar + ", idIsbn=" + idIsbn + ", estado=" + estado + '}';
-        return idEjemplar+", "+idIsbn+", "+estado;
-   
-}
+        return "Ejemplar{" + "idEjemplar=" + idEjemplar + ", idIsbn=" + idIsbn + ", idIsbnInt=" + idIsbnInt + ", estado=" + estado + ", activo=" + activo + '}';
+            //return idEjemplar+", "+idIsbn+", "+estado;
+    }
+
+    
 }
