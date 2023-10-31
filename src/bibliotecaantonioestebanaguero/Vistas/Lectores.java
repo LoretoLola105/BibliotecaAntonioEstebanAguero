@@ -1,16 +1,15 @@
 package bibliotecaantonioestebanaguero.Vistas;
 
-import appbiblioteca5.utildades.DAOUsersImpl;
-import appbibliotecanuevo.AccesoDatos.EjemplarData;
-import appbibliotecanuevo.AccesoDatos.LectorData;
-import appbibliotecanuevo.AccesoDatos.LibroData;
-import appbibliotecanuevo.AccesoDatos.PrestamoData;
-import appbibliotecanuevo.Utilidades.CustomRenderer;
-import appbibliotecanuevo.Utilidades.PanelPrincipal;
-import appbibliotecanuevo.entidades.Lector;
-import appbibliotecanuevo.entidades.Libro;
-import appbibliotecanuevo.entidades.Prestamo;
-import com.mycompany.interfaces.DAOUsers;
+
+import bibliotecaantonioestebanaguero.AccesoADatos.EjemplarData;
+import bibliotecaantonioestebanaguero.AccesoADatos.LectorData;
+import bibliotecaantonioestebanaguero.AccesoADatos.LibroData;
+import bibliotecaantonioestebanaguero.AccesoADatos.PrestamoData;
+import bibliotecaantonioestebanaguero.Utilidades.CustomRenderer;
+import bibliotecaantonioestebanaguero.entidades.Lector;
+import bibliotecaantonioestebanaguero.entidades.Libro;
+import bibliotecaantonioestebanaguero.entidades.Prestamo;
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -215,7 +214,7 @@ public class Lectores extends javax.swing.JPanel {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DAOUsers dao = new DAOUsersImpl();
+      
 //        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 //        if (jTable1.getSelectedRows().length < 1) {
 //            javax.swing.JOptionPane.showMessageDialog(this, "Debes seleccionar uno o más usuarios a eliminar.\n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -251,7 +250,7 @@ borrarFilas();
         
         for (Libro lib : libData.listarLibro()) {
 
-            if (lib.getTitulo().toLowerCase().startsWith(jTcampoBusqueda.getText().toLowerCase())) {
+            if (lib.getTitulo().toLowerCase().startsWith(searchButton.getText().toLowerCase())) {
                 modelo.addRow(new Object[]{
                     lib.getIsbn(),
                     lib.getTitulo(),
@@ -268,7 +267,7 @@ borrarFilas();
     
     private void cargaLector() {
         for (Lector lector : listaL) {
-            TableModel modelo;
+            TableModel modelo = null;
             jTable2.setModel(modelo);
         }
     }
@@ -289,16 +288,16 @@ borrarFilas();
             
         }
 
-        jTable1.setModel(modelo);
+        jTable2.setModel(modelo);
 
         // Aplica el renderer personalizado a la columna "ID ISBN"
         int columnaTitulo = 1;
-        jTable1.getColumnModel().getColumn(columnaTitulo).setCellRenderer(new CustomRenderer());
+        jTable2.getColumnModel().getColumn(columnaTitulo).setCellRenderer(new CustomRenderer());
     }
 
    private void borrarFilas() {
     try {
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         int filas = modelo.getRowCount();
         for (int f = filas - 1; f >= 0; f--) {
             modelo.removeRow(f);
@@ -310,7 +309,7 @@ borrarFilas();
 
  
 private void actualizarTabla(String opcionSeleccionada) {
-    DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+    DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
     modelo.setRowCount(0); // Borra la tabla antes de agregar nuevos resultados.
 
     for (Libro lib : libData.listarLibro()) {
