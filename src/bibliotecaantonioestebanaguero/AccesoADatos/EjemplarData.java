@@ -13,16 +13,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import newpackageEntidades.Ejemplar;
-import newpackageEntidades.EstadoEjemplar;
-import newpackageEntidades.Libro;
+import bibliotecaantonioestebanaguero.entidades.Ejemplar;
+import bibliotecaantonioestebanaguero.entidades.EstadoEjemplar;
+import bibliotecaantonioestebanaguero.entidades.Libro;
 
 /**
  *
  * @author Otras
  */
 public class EjemplarData {
-    private Connection con = null;
+   private Connection con = null;
     private LibroData libData = new LibroData();
     private LectorData lecData = new LectorData();
 
@@ -87,7 +87,7 @@ public class EjemplarData {
 
                 Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
                 eje.setEstado(EstadoEjemplar.DISPONIBLE_BIBLIOTECA);
@@ -112,7 +112,7 @@ public class EjemplarData {
             while (rs.next()) {
                 Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
                 eje.setEstado(EstadoEjemplar.DISPONIBLE_BIBLIOTECA);
@@ -136,7 +136,7 @@ public List<Ejemplar> obtenerEjemplaresInactivos() {
             while (rs.next()) {
                 Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
                 eje.setEstado(EstadoEjemplar.INACTIVO_PRESTADO);
@@ -160,7 +160,7 @@ public List<Ejemplar> obtenerEjemplaresInactivos() {
             while (rs.next()) {
                 Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
                 eje.setEstado(EstadoEjemplar.INACTIVO_PRESTADO);
@@ -184,7 +184,7 @@ public List<Ejemplar> obtenerEjemplaresInactivos() {
             while (rs.next()) {
                 Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
                 eje.setEstado(EstadoEjemplar.EN_REPARACION);
@@ -208,7 +208,7 @@ public List<Ejemplar> obtenerEjemplaresInactivos() {
             while (rs.next()) {
                 Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
                 eje.setEstado(EstadoEjemplar.DEVUELTO);
@@ -233,7 +233,7 @@ public List<Ejemplar> obtenerEjemplaresInactivos() {
             while (rs.next()) {
                 Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
                 eje.setEstado(EstadoEjemplar.DISPONIBLE_BIBLIOTECA);
@@ -322,7 +322,7 @@ public List<Ejemplar> obtenerEjemplaresInactivos() {
         if (rs.next()) {
             ejemplar = new Ejemplar();
             ejemplar.setIdEjemplar(idEjemplar);
-            Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+            Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 ejemplar.getIdIsbnInt();
                 ejemplar.setIdIsbn(lib);
                 ejemplar.setEstado(EstadoEjemplar.DISPONIBLE_BIBLIOTECA);
@@ -354,7 +354,7 @@ public Ejemplar buscarEjemplarXIsbn(int idIsbn) {
             ejemplar = new Ejemplar();
             ejemplar.setIdEjemplar(rs.getInt("idEjemplar"));
             ejemplar.setIdIsbnInt(rs.getInt("idIsbn"));            
-            Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+            Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 ejemplar.getIdIsbnInt();
                 ejemplar.setIdIsbn(lib);
                 ejemplar.setEstado(EstadoEjemplar.DISPONIBLE_BIBLIOTECA);
@@ -389,7 +389,7 @@ public Ejemplar buscarEjemplarXIsbn(int idIsbn) {
             while (rs.next()) {
                        Ejemplar eje = new Ejemplar();
                 eje.setIdEjemplar(rs.getInt("idEjemplar"));
-                Libro lib = libData.buscarLibro(rs.getInt("idIsbn"));
+                Libro lib = libData.buscarLibroPorIdLibro(rs.getInt("idIsbn"));
                 eje.getIdIsbnInt();
                 eje.setIdIsbn(lib);
 //            para comprobar si el ejemplar está disponible antes de agregarlo a la lista.
@@ -582,6 +582,7 @@ public void actualizarEjemplaresDisponiblesXPrestamo(int idIsbn, int idEjemplar)
 }
 
     
+    
 //    // Método para verificar si el Ejemplar ya está activo.
 private boolean estaActivo(int idEjemplar) {
      //Realiza una consulta para verificar el estado del Ejemplar.
@@ -603,7 +604,6 @@ private boolean estaActivo(int idEjemplar) {
 }
 
 
-
     public void borrarEjemplar(int idEjemplar, int idIsbn) {
         String sql = "DELETE FROM ejemplar WHERE idEjemplar = ? AND idIsbn = ?";
 
@@ -623,10 +623,4 @@ private boolean estaActivo(int idEjemplar) {
     }
 
     
-
-
-
-    
-   
-
 }

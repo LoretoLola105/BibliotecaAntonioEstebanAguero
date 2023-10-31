@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package bibliotecaantonioestebanaguero.AccesoADatos;
-import newpackageEntidades.EstadoPrestamo;
+import bibliotecaantonioestebanaguero.entidades.EstadoPrestamo;
 import bibliotecaantonioestebanaguero.AccesoADatos.EjemplarData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
-import newpackageEntidades.Ejemplar;
-import newpackageEntidades.EstadoEjemplar;
-import newpackageEntidades.Lector;
-import newpackageEntidades.Prestamo;
+import bibliotecaantonioestebanaguero.entidades.Ejemplar;
+import bibliotecaantonioestebanaguero.entidades.EstadoEjemplar;
+import bibliotecaantonioestebanaguero.entidades.Lector;
+import bibliotecaantonioestebanaguero.entidades.Prestamo;
 
 /**
  *

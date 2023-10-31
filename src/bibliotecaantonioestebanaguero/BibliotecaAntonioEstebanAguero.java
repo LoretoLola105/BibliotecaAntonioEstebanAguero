@@ -6,7 +6,7 @@
 package bibliotecaantonioestebanaguero;
 
 import  bibliotecaantonioestebanaguero.AccesoADatos.LibroData;
-import newpackageEntidades.Libro;
+import bibliotecaantonioestebanaguero.entidades.Libro;
 
 
 /**
