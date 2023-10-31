@@ -19,6 +19,12 @@ public class Prestamo {
     private Lector lector;
     private EstadoPrestamo estado;
 
+    public Prestamo(Ejemplar ejemplar, Lector lector) {
+        this.ejemplar = ejemplar;
+        this.lector = lector;
+    }
+
+    
     public Prestamo() {
     }
 
