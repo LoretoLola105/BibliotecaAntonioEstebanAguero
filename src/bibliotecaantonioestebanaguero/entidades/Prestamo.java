@@ -12,23 +12,17 @@ import java.util.Date;
  * @author Otras
  */
 public class Prestamo {
-     private int idPrestamo;
+   private int idPrestamo;
     private String fechaPrestamo;
     private String fechaDevolucion;
     private Ejemplar ejemplar;
     private Lector lector;
-    private EstadoPrestamo estado;
+    private EstadoEjemplar estado;
 
-    public Prestamo(Ejemplar ejemplar, Lector lector) {
-        this.ejemplar = ejemplar;
-        this.lector = lector;
-    }
-
-    
     public Prestamo() {
     }
 
-    public Prestamo(int idPrestamo, String fechaPrestamo, String fechaDevolucion, Ejemplar ejemplar, Lector lector, EstadoPrestamo estado) {
+    public Prestamo(int idPrestamo, String fechaPrestamo, String fechaDevolucion, Ejemplar ejemplar, Lector lector,  EstadoEjemplar estado) {
         this.idPrestamo = idPrestamo;
         this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucion = fechaDevolucion;
@@ -37,13 +31,15 @@ public class Prestamo {
         this.estado = estado;
     }
 
-    public Prestamo(String fechaPrestamo, String fechaDevolucion, Ejemplar ejemplar, Lector lector, EstadoPrestamo estado) {
+    public Prestamo(String fechaPrestamo, String fechaDevolucion, Ejemplar ejemplar, Lector lector,   EstadoEjemplar estado) {
         this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucion = fechaDevolucion;
         this.ejemplar = ejemplar;
         this.lector = lector;
         this.estado = estado;
     }
+
+    
 
     public int getIdPrestamo() {
         return idPrestamo;
@@ -85,13 +81,15 @@ public class Prestamo {
         this.lector = lector;
     }
 
-    public EstadoPrestamo getEstado() {
+    public EstadoEjemplar getEstado() {
         return estado;
     }
 
-    public void setEstado(EstadoPrestamo estado) {
+    public void setEstado(EstadoEjemplar estado) {
         this.estado = estado;
     }
+
+    
 
 
     
@@ -99,6 +97,14 @@ public class Prestamo {
     @Override
     public String toString() {
         return "Prestamo{" + "idPrestamo=" + idPrestamo + ", fechaPrestamo=" + fechaPrestamo + ", fechaDevolucion=" + fechaDevolucion + ", ejemplar=" + ejemplar + ", lector=" + lector + ", estado=" + estado + '}';
+    }
+
+    public Lector getIdLector() {
+         return lector;
+    }
+
+    public Ejemplar getIdEjemplar() {
+        return ejemplar;
     }
 
 }

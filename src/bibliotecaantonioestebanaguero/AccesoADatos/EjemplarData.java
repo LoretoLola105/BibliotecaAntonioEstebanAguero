@@ -22,7 +22,7 @@ import bibliotecaantonioestebanaguero.entidades.Libro;
  * @author Otras
  */
 public class EjemplarData {
-   private Connection con = null;
+    private Connection con = null;
     private LibroData libData = new LibroData();
     private LectorData lecData = new LectorData();
 
@@ -582,7 +582,7 @@ public void actualizarEjemplaresDisponiblesXPrestamo(int idIsbn, int idEjemplar)
 }
 
     
-    
+//    
 //    // Método para verificar si el Ejemplar ya está activo.
 private boolean estaActivo(int idEjemplar) {
      //Realiza una consulta para verificar el estado del Ejemplar.
@@ -604,6 +604,7 @@ private boolean estaActivo(int idEjemplar) {
 }
 
 
+
     public void borrarEjemplar(int idEjemplar, int idIsbn) {
         String sql = "DELETE FROM ejemplar WHERE idEjemplar = ? AND idIsbn = ?";
 
@@ -622,5 +623,6 @@ private boolean estaActivo(int idEjemplar) {
         }
     }
 
-    
+   
+ 
 }

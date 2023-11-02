@@ -11,9 +11,10 @@ package bibliotecaantonioestebanaguero.entidades;
  */
 public enum EstadoEjemplar {
   //contiene constantes SE COLOCAN EN MAYUSCULAS
-    DISPONIBLE_BIBLIOTECA, //// Por defecto, el producto se crea como DIPONIBLE EN BIBLITECA.
+     DISPONIBLE_BIBLIOTECA, //// Por defecto, el producto se crea como DIPONIBLE EN BIBLITECA.
     RETRASO,
     EN_REPARACION,
     DEVUELTO,
-    INACTIVO_PRESTADO,
+    INACTIVO_PRESTADO, VALOR_POR_DEFECTO, PRESTADO,
+    
 }
