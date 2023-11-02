@@ -1066,6 +1066,15 @@ for (Prestamo prestamo : prestamos) {
         System.out.println(formatoFecha.format(fecha)); */
 //RESULTADO EXITOSO run: 2023-10-22 BUILD SUCCESSFUL (total time: 4 seconds)
 //******************************************************************************************************
+//metodo obtenerPrestamosPorLector(int id)
+/*PrestamoData presData=new PrestamoData();
+Prestamo pres=new Prestamo();
+presData.obtenerPrestamosPorLector(21);
+        System.out.println(presData.obtenerPrestamosPorLector(21));
+*/
+//Resultado run:run:
+//Prestamo{idPrestamo=21, fechaPrestamo=2023-05-11, fechaDevolucion=2023-06-11, ejemplar=Ejemplar{idEjemplar=10, idIsbn=Orgullo y Prejuicio, idIsbnInt=0, estado=DISPONIBLE_BIBLIOTECA, activo=true}, lector=martinez juan pablo, estado=DISPONIBLE_BIBLIOTECA} BUILD SUCCESSFUL (total time: 3 seconds)
+
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 //METODO LISTAR LOS LECTORES A LOS QUE SE LES VENCIO EL PRESTAMO 
 
